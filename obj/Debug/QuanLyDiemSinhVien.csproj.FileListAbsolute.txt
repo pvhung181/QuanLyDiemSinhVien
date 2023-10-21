@@ -1,0 +1,11 @@
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\bin\Debug\QuanLyDiemSinhVien.exe.config
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\bin\Debug\QuanLyDiemSinhVien.exe
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\bin\Debug\QuanLyDiemSinhVien.pdb
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.csproj.AssemblyReference.cache
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.Form1.resources
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.Forms.Form2.resources
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.Properties.Resources.resources
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.csproj.GenerateResource.cache
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.csproj.CoreCompileInputs.cache
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.exe
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\QuanLyDiemSinhVien\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.pdb

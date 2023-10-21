@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDiemSinhVien.Forms
 {
-	public partial class Form2 : Form
+	public partial class Quanlydiem : Form
 	{
-		public Form2()
+		public Quanlydiem()
 		{
 			InitializeComponent();
 		}

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace QuanLyDiemSinhVien.Constants
 {
-	internal class DatabaseConstants
+	public class DatabaseConstants
 	{
-	}
+		public static readonly string CONNECTION_STRING = @"Data Source=.\SQLEXPRESS;Initial Catalog=QLDSV; User ID=sa; Password=123";
+    }
 }

@@ -54,17 +54,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Quanlydiem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Quanlydiem.Designer.cs">
       <DependentUpon>Quanlydiem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="menu.Designer.cs">
-      <DependentUpon>menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,11 +72,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Quanlydiem.resx">
       <DependentUpon>Quanlydiem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="menu.resx">
-      <DependentUpon>menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

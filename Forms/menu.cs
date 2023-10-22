@@ -8,20 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyDiemSinhVien
+namespace QuanLyDiemSinhVien.Forms
 {
-	public partial class menu : Form
+	public partial class Menu : Form
 	{
-		public menu()
+		public Menu()
 		{
 			InitializeComponent();
 		}
-
-		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-
-		}
-
-	
 	}
 }

@@ -29,7 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.button5 = new System.Windows.Forms.Button();
 			this.textBox10 = new System.Windows.Forms.TextBox();
 			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
@@ -80,18 +79,6 @@
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(238, 37);
 			this.comboBox1.TabIndex = 3;
-			// 
-			// button5
-			// 
-			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.button5.Location = new System.Drawing.Point(1020, 42);
-			this.button5.Margin = new System.Windows.Forms.Padding(2);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(147, 70);
-			this.button5.TabIndex = 2;
-			this.button5.Text = "Cập nhật điểm";
-			this.button5.UseVisualStyleBackColor = true;
 			// 
 			// textBox10
 			// 
@@ -156,7 +143,6 @@
 			// groupBox3
 			// 
 			this.groupBox3.Controls.Add(this.comboBox1);
-			this.groupBox3.Controls.Add(this.button5);
 			this.groupBox3.Controls.Add(this.textBox10);
 			this.groupBox3.Controls.Add(this.textBox6);
 			this.groupBox3.Controls.Add(this.label10);
@@ -507,7 +493,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label10;

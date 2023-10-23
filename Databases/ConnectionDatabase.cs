@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyDiemSinhVien.Databases
 {
-    internal class ConnectionDatabase
+    public class ConnectionDatabase
     {
         private SqlConnection con;
 

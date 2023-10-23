@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDiemSinhVien.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace QuanLyDiemSinhVien.Forms
 {
 	public partial class Menu : Form
 	{
+		SinhVienRepository svRepo;
 		public Menu()
 		{
 			InitializeComponent();
+			svRepo = new SinhVienRepository();
+			dataGridView1.DataSource = svRepo.getAllStudents();
 		}
-	}
+    }
 }

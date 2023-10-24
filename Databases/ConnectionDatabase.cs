@@ -49,5 +49,15 @@ namespace QuanLyDiemSinhVien.Databases
             closeConnect();
         }
 
+        public void deletetData(string sqlcommand)
+        {
+            openConnect();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = con;
+            sqlCommand.CommandText = sqlcommand;
+            sqlCommand.ExecuteNonQuery();
+            closeConnect();
+        }
+
     }
 }

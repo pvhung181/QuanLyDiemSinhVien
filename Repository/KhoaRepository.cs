@@ -8,27 +8,20 @@ using System.Threading.Tasks;
 
 namespace QuanLyDiemSinhVien.Repository
 {
-    public class LopRepository 
+    public class KhoaRepository
     {
         ConnectionDatabase db;
 
-        public LopRepository()
+        public KhoaRepository()
         {
             db = new ConnectionDatabase();
         }
 
-        public DataTable getAllMaLop()
+        public DataTable getAllMaKhoa()
         {
-            string sql = "select MaLop from Lop";
+            string sql = "select MaKhoa from Khoa";
             DataTable dataTable = db.readData(sql);
             return dataTable;
-        }
-
-        public DataTable getAllMaLopByMaKhoa(string maKhoa)
-        {
-            string sql = $"select MaLop from Lop where MaKhoa = '{maKhoa}'";
-            DataTable maLops = db.readData(sql);
-            return maLops;
         }
     }
 }

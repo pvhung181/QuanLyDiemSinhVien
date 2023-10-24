@@ -17,11 +17,20 @@ namespace QuanLyDiemSinhVien.Repository
             db = new ConnectionDatabase();
         }
 
-        public DataTable getMCLByMaKhoa(string maKhoa)
+        public DataTable getAllMCN()
         {
-            string sql = $"select MaCN from KhoaCN where MaKhoa = {maKhoa}";
+            string sql = "select MaCN from KhoaCN";
+            DataTable dataTable = db.readData(sql);
+            return dataTable;
+        }
+
+        public DataTable getMCNByMaKhoa(string maKhoa)
+        {
+            string sql = $"select MaCN from KhoaCN where MaKhoa = '{maKhoa}'";
             DataTable chuyenNganh = db.readData(sql);
             return chuyenNganh;
         }
+
+
     }
 }

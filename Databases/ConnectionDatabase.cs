@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyDiemSinhVien.Databases
 {
-    internal class ConnectionDatabase
+    public class ConnectionDatabase
     {
         private SqlConnection con;
 
@@ -40,6 +40,16 @@ namespace QuanLyDiemSinhVien.Databases
         }
 
         public void persistData(string sqlcommand)
+        {
+            openConnect();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = con;
+            sqlCommand.CommandText = sqlcommand;
+            sqlCommand.ExecuteNonQuery();
+            closeConnect();
+        }
+
+        public void deletetData(string sqlcommand)
         {
             openConnect();
             SqlCommand sqlCommand = new SqlCommand();

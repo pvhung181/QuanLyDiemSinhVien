@@ -51,13 +51,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -109,14 +109,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dantoc);
+            this.groupBox3.Controls.Add(this.que);
             this.groupBox3.Controls.Add(this.ngaysinh);
             this.groupBox3.Controls.Add(this.mahdt);
             this.groupBox3.Controls.Add(this.machucvu);
             this.groupBox3.Controls.Add(this.gioitinh);
             this.groupBox3.Controls.Add(this.malop);
             this.groupBox3.Controls.Add(this.machuyennganh);
-            this.groupBox3.Controls.Add(this.dantoc);
-            this.groupBox3.Controls.Add(this.que);
             this.groupBox3.Controls.Add(this.makhoa);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.labelcn);
@@ -341,16 +341,17 @@
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1700, 441);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox13);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(18, 504);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
@@ -359,15 +360,6 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox13.Location = new System.Drawing.Point(260, 183);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(390, 44);
-            this.textBox13.TabIndex = 6;
             // 
             // label14
             // 
@@ -379,15 +371,6 @@
             this.label14.Size = new System.Drawing.Size(92, 37);
             this.label14.TabIndex = 5;
             this.label14.Text = "Khoa";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox5.Location = new System.Drawing.Point(260, 110);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(390, 44);
-            this.textBox5.TabIndex = 4;
             // 
             // label13
             // 
@@ -410,15 +393,6 @@
             this.button1.Text = "Tìm kiếm";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(260, 38);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(390, 44);
-            this.textBox1.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -429,6 +403,42 @@
             this.label1.Size = new System.Drawing.Size(77, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quê";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(268, 110);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(296, 39);
+            this.comboBox3.TabIndex = 3;
+            this.comboBox3.SelectedValueChanged += new System.EventHandler(this.malop_SelectedValueChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBox1.Location = new System.Drawing.Point(268, 40);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(296, 39);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.makhoa_SelectedValueChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBox2.Location = new System.Drawing.Point(268, 187);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(296, 39);
+            this.comboBox2.TabIndex = 6;
             // 
             // groupBox1
             // 
@@ -503,24 +513,22 @@
             this.que.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.que.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.que.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.que.Location = new System.Drawing.Point(780, 124);
-            this.que.Margin = new System.Windows.Forms.Padding(6);
+            this.que.FormattingEnabled = true;
+            this.que.Location = new System.Drawing.Point(780, 129);
             this.que.Name = "que";
             this.que.Size = new System.Drawing.Size(278, 39);
-            this.que.TabIndex = 6;
-            this.que.SelectedValueChanged += new System.EventHandler(this.makhoa_SelectedValueChanged);
+            this.que.TabIndex = 7;
             // 
             // dantoc
             // 
             this.dantoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.dantoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.dantoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dantoc.Location = new System.Drawing.Point(780, 280);
-            this.dantoc.Margin = new System.Windows.Forms.Padding(6);
+            this.dantoc.FormattingEnabled = true;
+            this.dantoc.Location = new System.Drawing.Point(780, 285);
             this.dantoc.Name = "dantoc";
             this.dantoc.Size = new System.Drawing.Size(278, 39);
-            this.dantoc.TabIndex = 6;
-            this.dantoc.SelectedValueChanged += new System.EventHandler(this.makhoa_SelectedValueChanged);
+            this.dantoc.TabIndex = 8;
             // 
             // Form1
             // 
@@ -572,15 +580,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.TextBox textBox13;
 		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem danhSáchSinhViênToolStripMenuItem;
@@ -592,8 +597,11 @@
         private System.Windows.Forms.ComboBox machuyennganh;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox mahdt;
-        private System.Windows.Forms.ComboBox que;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox dantoc;
+        private System.Windows.Forms.ComboBox que;
     }
 }
 

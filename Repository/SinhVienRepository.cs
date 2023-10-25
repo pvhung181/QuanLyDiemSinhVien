@@ -34,5 +34,18 @@ namespace QuanLyDiemSinhVien.Repository
             DataTable students = db.readData(sql);
             return students;
         }
+
+        public bool persistStudent(string sql)
+        {
+            try
+            {
+                db.persistData(sql);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

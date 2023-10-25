@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,10 @@ namespace QuanLyDiemSinhVien
 {
 	public partial class Form1 : Form
 	{
+        //source table
+        BindingSource bindingSource = new BindingSource();
+
+        //repositories
 		SinhVienRepository svRepository;
 		KhoaRepository khoaRepository;
 		LopRepository lopRepository;
@@ -36,13 +41,16 @@ namespace QuanLyDiemSinhVien
             danTocRepository = new DanTocRepository();
 
             // initial datasource gridview
-            dataGridView1.DataSource = svRepository.getAllStudents();
-		}
+            bindingSource.DataSource = svRepository.getAllStudents();
+            dataGridView1.DataSource = bindingSource;
+
+            this.Size = new Size(900, 730);
+            loadDefaultValueOfAllCombobox();
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-			this.Size = new Size(900, 730);
-			loadDefaultValueOfAllCombobox();
+
         }
 
 		public void loadDefaultValueOfAllCombobox()
@@ -67,7 +75,7 @@ namespace QuanLyDiemSinhVien
 
         private void makhoa_SelectedValueChanged(object sender, EventArgs e)
         {
-            string item = makhoa.GetItemText(makhoa.SelectedItem);
+            string item = makhoa.Text;
             malop.SelectedIndex = -1;
             machuyennganh.SelectedIndex = -1;
             loadValuesOfCombox(malop, lopRepository.getAllMaLopByMaKhoa(item));
@@ -78,7 +86,8 @@ namespace QuanLyDiemSinhVien
         {
             string item = malop.GetItemText(malop.SelectedItem);
             DataTable dt = svRepository.getStudentsByMaLop(item);
-            dataGridView1.DataSource = dt;
+            bindingSource.DataSource = dt;
+            bindingSource.ResetBindings(false);
         }
 
         public bool isValid()
@@ -145,6 +154,63 @@ namespace QuanLyDiemSinhVien
         {
 
             if (!isValid()) return;
+            string sql = loadUserInfor();
+            if (svRepository.persistStudent(sql))
+            {
+                DataTable dt = svRepository.getAllStudents();
+                bindingSource.DataSource = null;
+                bindingSource.DataSource = dt;
+                bindingSource.ResetBindings(false);
+/*                dataGridView1.Update();
+                dataGridView1.Refresh();*/
+
+              //  MessageBox.Show("Lưu sinh viên thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                clearInput();
+            }
+            else
+            {
+                MessageBox.Show("Lưu sinh viên thất bại !", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //MessageBox.Show(d, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+
+
+        public void clearInput()
+        {
+            msv.Text = string.Empty;
+            hoten.Text = string.Empty;
+            makhoa.SelectedIndex = -1;
+            malop.SelectedIndex = -1;
+            machuyennganh.SelectedIndex = -1;
+            machucvu.SelectedIndex = -1;
+            que.SelectedIndex = -1;
+            gioitinh.SelectedIndex = -1;
+            mahdt.SelectedIndex = -1;
+            dantoc.SelectedIndex = -1;
+            ngaysinh.Text = string.Empty;
+        }
+
+        public string loadUserInfor()
+        {
+            string maQue = queRepository.getMaQueByQue(que.Text);
+            int maDanToc = danTocRepository.getMaDTByDT(dantoc.Text);
+            DateTime? dt = (DateTime)splitDateOfBirth();
+            string d = string.Format("{0:yyyy-MM-dd}", dt);
+            string sql = $"insert into SinhVien values " +
+                $"('{msv.Text}', N'{hoten.Text}', '{makhoa.Text}', '{malop.Text}', " +
+                $"'{d}', N'{gioitinh.Text}', '{maQue}', {maDanToc}, " +
+                $"'{machuyennganh.Text}', '{mahdt.Text}','{machucvu.Text}')";
+
+            return sql;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

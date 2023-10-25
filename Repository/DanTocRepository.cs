@@ -23,5 +23,12 @@ namespace QuanLyDiemSinhVien.Repository
             DataTable dataTable = db.readData(sql);
             return dataTable;
         }
+
+        public int getMaDTByDT(string dt)
+        {
+            string sql = $"select MaDanToc from DanToc where DanToc = N'{dt}'";
+            DataTable dataTable = db.readData(sql);
+            return Convert.ToInt32(dataTable.Rows[0][0].ToString());
+        }
     }
 }

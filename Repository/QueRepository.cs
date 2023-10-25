@@ -23,5 +23,12 @@ namespace QuanLyDiemSinhVien.Repository
             DataTable dataTable = db.readData(sql);
             return dataTable;
         }
+
+        public string getMaQueByQue(string que)
+        {
+            string sql = $"select MaQue from Que where TenQue = N'{que}'";
+            DataTable dataTable = db.readData(sql);
+            return dataTable.Rows[0][0].ToString();
+        }
     }
 }

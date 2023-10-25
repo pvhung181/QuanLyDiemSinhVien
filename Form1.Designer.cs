@@ -32,7 +32,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.labelcn = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ngaysinh = new System.Windows.Forms.MaskedTextBox();
+            this.ngaysinh = new System.Windows.Forms.DateTimePicker();
+            this.dantoc = new System.Windows.Forms.ComboBox();
+            this.que = new System.Windows.Forms.ComboBox();
             this.mahdt = new System.Windows.Forms.ComboBox();
             this.machucvu = new System.Windows.Forms.ComboBox();
             this.gioitinh = new System.Windows.Forms.ComboBox();
@@ -65,8 +67,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.danhSáchSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýĐiểmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.que = new System.Windows.Forms.ComboBox();
-            this.dantoc = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -78,12 +79,15 @@
             // 
             this.makhoa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.makhoa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.makhoa.Items.AddRange(new object[] {
+            ""});
             this.makhoa.Location = new System.Drawing.Point(238, 127);
             this.makhoa.Margin = new System.Windows.Forms.Padding(6);
             this.makhoa.Name = "makhoa";
             this.makhoa.Size = new System.Drawing.Size(296, 33);
             this.makhoa.TabIndex = 6;
-            this.makhoa.SelectedValueChanged += new System.EventHandler(this.makhoa_SelectedValueChanged);
+            this.makhoa.SelectedIndexChanged += new System.EventHandler(this.makhoa_SelectedIndexChanged);
+            this.makhoa.Enter += new System.EventHandler(this.makhoa_Enter);
             // 
             // label10
             // 
@@ -109,9 +113,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.ngaysinh);
             this.groupBox3.Controls.Add(this.dantoc);
             this.groupBox3.Controls.Add(this.que);
-            this.groupBox3.Controls.Add(this.ngaysinh);
             this.groupBox3.Controls.Add(this.mahdt);
             this.groupBox3.Controls.Add(this.machucvu);
             this.groupBox3.Controls.Add(this.gioitinh);
@@ -142,14 +146,36 @@
             // 
             // ngaysinh
             // 
+            this.ngaysinh.CustomFormat = "yyyy-MM-dd";
             this.ngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.ngaysinh.Location = new System.Drawing.Point(780, 213);
-            this.ngaysinh.Margin = new System.Windows.Forms.Padding(6);
-            this.ngaysinh.Mask = "00/00/0000";
+            this.ngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ngaysinh.Location = new System.Drawing.Point(780, 219);
             this.ngaysinh.Name = "ngaysinh";
             this.ngaysinh.Size = new System.Drawing.Size(278, 38);
-            this.ngaysinh.TabIndex = 5;
-            this.ngaysinh.ValidatingType = typeof(System.DateTime);
+            this.ngaysinh.TabIndex = 9;
+            this.ngaysinh.Value = new System.DateTime(2023, 10, 25, 19, 54, 56, 0);
+            // 
+            // dantoc
+            // 
+            this.dantoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.dantoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.dantoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dantoc.FormattingEnabled = true;
+            this.dantoc.Location = new System.Drawing.Point(780, 285);
+            this.dantoc.Name = "dantoc";
+            this.dantoc.Size = new System.Drawing.Size(278, 39);
+            this.dantoc.TabIndex = 8;
+            // 
+            // que
+            // 
+            this.que.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.que.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.que.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.que.FormattingEnabled = true;
+            this.que.Location = new System.Drawing.Point(780, 129);
+            this.que.Name = "que";
+            this.que.Size = new System.Drawing.Size(278, 39);
+            this.que.TabIndex = 7;
             // 
             // mahdt
             // 
@@ -201,7 +227,7 @@
             this.malop.Name = "malop";
             this.malop.Size = new System.Drawing.Size(296, 39);
             this.malop.TabIndex = 3;
-            this.malop.SelectedValueChanged += new System.EventHandler(this.malop_SelectedValueChanged);
+            this.malop.SelectionChangeCommitted += new System.EventHandler(this.malop_SelectionChangeCommitted);
             // 
             // machuyennganh
             // 
@@ -415,7 +441,6 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(296, 39);
             this.comboBox3.TabIndex = 3;
-            this.comboBox3.SelectedValueChanged += new System.EventHandler(this.malop_SelectedValueChanged);
             // 
             // comboBox1
             // 
@@ -427,7 +452,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(296, 39);
             this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.makhoa_SelectedValueChanged);
             // 
             // comboBox2
             // 
@@ -461,6 +485,7 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -508,33 +533,22 @@
             this.quảnLýĐiểmToolStripMenuItem.Size = new System.Drawing.Size(185, 36);
             this.quảnLýĐiểmToolStripMenuItem.Text = "Quản Lý Điểm";
             // 
-            // que
+            // button5
             // 
-            this.que.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.que.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.que.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.que.FormattingEnabled = true;
-            this.que.Location = new System.Drawing.Point(780, 129);
-            this.que.Name = "que";
-            this.que.Size = new System.Drawing.Size(278, 39);
-            this.que.TabIndex = 7;
-            // 
-            // dantoc
-            // 
-            this.dantoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.dantoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.dantoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dantoc.FormattingEnabled = true;
-            this.dantoc.Location = new System.Drawing.Point(780, 285);
-            this.dantoc.Name = "dantoc";
-            this.dantoc.Size = new System.Drawing.Size(278, 39);
-            this.dantoc.TabIndex = 8;
+            this.button5.Location = new System.Drawing.Point(1018, 704);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(170, 50);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1773, 1167);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -547,7 +561,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -590,7 +603,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem danhSáchSinhViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýĐiểmToolStripMenuItem;
-        private System.Windows.Forms.MaskedTextBox ngaysinh;
         private System.Windows.Forms.ComboBox gioitinh;
         private System.Windows.Forms.ComboBox malop;
         private System.Windows.Forms.ComboBox machucvu;
@@ -602,6 +614,8 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox dantoc;
         private System.Windows.Forms.ComboBox que;
+        private System.Windows.Forms.DateTimePicker ngaysinh;
+        private System.Windows.Forms.Button button5;
     }
 }
 

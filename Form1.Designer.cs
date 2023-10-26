@@ -32,6 +32,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.labelcn = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lammoi = new System.Windows.Forms.Button();
             this.ngaysinh = new System.Windows.Forms.DateTimePicker();
             this.dantoc = new System.Windows.Forms.ComboBox();
             this.que = new System.Windows.Forms.ComboBox();
@@ -57,9 +58,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -67,7 +65,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.danhSáchSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýĐiểmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button5 = new System.Windows.Forms.Button();
+            this.lammoitk = new System.Windows.Forms.Button();
+            this.tkque = new System.Windows.Forms.ComboBox();
+            this.tkkhoa = new System.Windows.Forms.ComboBox();
+            this.tkchuyennghanh = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -87,7 +88,7 @@
             this.makhoa.Size = new System.Drawing.Size(296, 33);
             this.makhoa.TabIndex = 6;
             this.makhoa.SelectedIndexChanged += new System.EventHandler(this.makhoa_SelectedIndexChanged);
-            this.makhoa.Enter += new System.EventHandler(this.makhoa_Enter);
+            this.makhoa.TextChanged += new System.EventHandler(this.makhoa_TextChanged);
             // 
             // label10
             // 
@@ -113,6 +114,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lammoi);
             this.groupBox3.Controls.Add(this.ngaysinh);
             this.groupBox3.Controls.Add(this.dantoc);
             this.groupBox3.Controls.Add(this.que);
@@ -143,6 +145,16 @@
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin sinh viên";
+            // 
+            // lammoi
+            // 
+            this.lammoi.Location = new System.Drawing.Point(1160, 313);
+            this.lammoi.Name = "lammoi";
+            this.lammoi.Size = new System.Drawing.Size(142, 59);
+            this.lammoi.TabIndex = 10;
+            this.lammoi.Text = "Làm mới";
+            this.lammoi.UseVisualStyleBackColor = true;
+            this.lammoi.Click += new System.EventHandler(this.lammoi_Click);
             // 
             // ngaysinh
             // 
@@ -371,13 +383,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tkchuyennghanh);
+            this.groupBox2.Controls.Add(this.tkkhoa);
+            this.groupBox2.Controls.Add(this.tkque);
+            this.groupBox2.Controls.Add(this.lammoitk);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(18, 504);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
@@ -391,7 +404,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label14.Location = new System.Drawing.Point(16, 187);
+            this.label14.Location = new System.Drawing.Point(16, 114);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(92, 37);
@@ -402,7 +415,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(16, 112);
+            this.label13.Location = new System.Drawing.Point(16, 182);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(225, 37);
@@ -411,13 +424,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(710, 104);
+            this.button1.Location = new System.Drawing.Point(701, 40);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 62);
             this.button1.TabIndex = 2;
             this.button1.Text = "Tìm kiếm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -429,40 +443,6 @@
             this.label1.Size = new System.Drawing.Size(77, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quê";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(268, 110);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(296, 39);
-            this.comboBox3.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBox1.Location = new System.Drawing.Point(268, 40);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(296, 39);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBox2.Location = new System.Drawing.Point(268, 187);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(6);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(296, 39);
-            this.comboBox2.TabIndex = 6;
             // 
             // groupBox1
             // 
@@ -478,7 +458,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1525, 606);
+            this.button4.Location = new System.Drawing.Point(1268, 608);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(170, 62);
@@ -489,13 +469,14 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1275, 606);
+            this.button3.Location = new System.Drawing.Point(1492, 608);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(170, 62);
             this.button3.TabIndex = 8;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -517,38 +498,65 @@
             this.quảnLýĐiểmToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1773, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1773, 48);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // danhSáchSinhViênToolStripMenuItem
             // 
             this.danhSáchSinhViênToolStripMenuItem.Name = "danhSáchSinhViênToolStripMenuItem";
-            this.danhSáchSinhViênToolStripMenuItem.Size = new System.Drawing.Size(257, 36);
+            this.danhSáchSinhViênToolStripMenuItem.Size = new System.Drawing.Size(257, 44);
             this.danhSáchSinhViênToolStripMenuItem.Text = "Danh Sách Sinh Viên";
             // 
             // quảnLýĐiểmToolStripMenuItem
             // 
             this.quảnLýĐiểmToolStripMenuItem.Name = "quảnLýĐiểmToolStripMenuItem";
-            this.quảnLýĐiểmToolStripMenuItem.Size = new System.Drawing.Size(185, 36);
+            this.quảnLýĐiểmToolStripMenuItem.Size = new System.Drawing.Size(185, 44);
             this.quảnLýĐiểmToolStripMenuItem.Text = "Quản Lý Điểm";
             // 
-            // button5
+            // lammoitk
             // 
-            this.button5.Location = new System.Drawing.Point(1018, 704);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(170, 50);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.lammoitk.Location = new System.Drawing.Point(701, 154);
+            this.lammoitk.Name = "lammoitk";
+            this.lammoitk.Size = new System.Drawing.Size(180, 65);
+            this.lammoitk.TabIndex = 7;
+            this.lammoitk.Text = "Làm mới";
+            this.lammoitk.UseVisualStyleBackColor = true;
+            this.lammoitk.Click += new System.EventHandler(this.lammoitk_Click);
+            // 
+            // tkque
+            // 
+            this.tkque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tkque.FormattingEnabled = true;
+            this.tkque.Location = new System.Drawing.Point(268, 40);
+            this.tkque.Name = "tkque";
+            this.tkque.Size = new System.Drawing.Size(288, 39);
+            this.tkque.TabIndex = 8;
+            // 
+            // tkkhoa
+            // 
+            this.tkkhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tkkhoa.FormattingEnabled = true;
+            this.tkkhoa.Location = new System.Drawing.Point(268, 112);
+            this.tkkhoa.Name = "tkkhoa";
+            this.tkkhoa.Size = new System.Drawing.Size(288, 39);
+            this.tkkhoa.TabIndex = 9;
+            this.tkkhoa.SelectedIndexChanged += new System.EventHandler(this.tkkhoa_SelectedIndexChanged);
+            // 
+            // tkchuyennghanh
+            // 
+            this.tkchuyennghanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tkchuyennghanh.FormattingEnabled = true;
+            this.tkchuyennghanh.Location = new System.Drawing.Point(268, 180);
+            this.tkchuyennghanh.Name = "tkchuyennghanh";
+            this.tkchuyennghanh.Size = new System.Drawing.Size(288, 39);
+            this.tkchuyennghanh.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1773, 1167);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -609,13 +617,14 @@
         private System.Windows.Forms.ComboBox machuyennganh;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox mahdt;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox dantoc;
         private System.Windows.Forms.ComboBox que;
         private System.Windows.Forms.DateTimePicker ngaysinh;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button lammoi;
+        private System.Windows.Forms.Button lammoitk;
+        private System.Windows.Forms.ComboBox tkchuyennghanh;
+        private System.Windows.Forms.ComboBox tkkhoa;
+        private System.Windows.Forms.ComboBox tkque;
     }
 }
 

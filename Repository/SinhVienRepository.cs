@@ -11,11 +11,11 @@ namespace QuanLyDiemSinhVien.Repository
     public class SinhVienRepository
     {
         ConnectionDatabase db;
-        readonly static string GET_ALL = "select masv [Mã Sinh Viên], tensv [Họ Và Tên], makhoa [Mã Khoa], malop [Mã Lớp]," +
+        public readonly static string GET_ALL = "select masv [Mã Sinh Viên], tensv [Họ Và Tên], makhoa [Mã Khoa], malop [Mã Lớp]," +
                 "ngaysinh [Ngày Sinh],gioitinh [Giới Tính], tenque [Quê], dantoc [Dân Tộc]," +
                 " macn [Mã Chuyên Ngành], mahdt [Mã HĐT], machucvu [Mã Chức Vụ] " +
                 "from SinhVien sv join Que q on  sv.maque = q.maque " +
-                "join DanToc dt on sv.madantoc = dt.madantoc";
+                "join DanToc dt on sv.madantoc = dt.madantoc ";
 
         public SinhVienRepository()
         {
@@ -35,8 +35,35 @@ namespace QuanLyDiemSinhVien.Repository
             return students;
         }
 
+        public DataTable getStudentsWithWhereClause(string sql)
+        {
+            DataTable students = db.readData(sql);
+            return students;
+        }
+
+        public int countStudentById(string id)
+        {
+            string sql = $"select count(*) from sinhvien where Masv = '{id}'";
+            int count = Convert.ToInt32(db.readData(sql).Rows[0][0]);
+            return count;
+        }
+
         public bool persistStudent(string sql)
         {
+            try
+            {
+                db.persistData(sql);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool deleteStudent(string msv)
+        {
+            string sql = $"delete from sinhvien where Masv = '{msv}'";
             try
             {
                 db.persistData(sql);

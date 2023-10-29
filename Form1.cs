@@ -41,8 +41,11 @@ namespace QuanLyDiemSinhVien
             // initial datasource gridview
             dataGridView1.DataSource = svRepository.getAllStudents();
 
-            this.Size = new Size(900, 730);
             loadDefaultValueOfAllCombobox();
+
+            this.Size = new Size(880, 715);
+            tabControl1.Size = new Size(880, 715);
+            addform(tabPage2, new Quanlydiem());
         }
 
         //form
@@ -331,5 +334,25 @@ namespace QuanLyDiemSinhVien
             string sql = SinhVienRepository.GET_ALL + whereClause;
             return sql;
         }
+
+        //function to ađ form
+        public void addform(TabPage tp, Form f)
+        {
+
+            f.TopLevel = false;
+            //no border if needed
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.AutoScaleMode = AutoScaleMode.Dpi;
+
+            if (!tp.Controls.Contains(f))
+            {
+                tp.Controls.Add(f);
+                f.Dock = DockStyle.Fill;
+                f.Show();
+                Refresh();
+            }
+            Refresh();
+        }
+
     }
 }

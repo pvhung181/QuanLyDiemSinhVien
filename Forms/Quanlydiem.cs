@@ -158,5 +158,14 @@ namespace QuanLyDiemSinhVien.Forms
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            malop.SelectedIndex = -1;
+            mamon.Text = null;
+            hocky.SelectedIndex = -1;
+            lanthi.SelectedIndex = -1;
+            danhsachdiem.DataSource = null;
+            danhsachdiem.Refresh();
+        }
     }
 }

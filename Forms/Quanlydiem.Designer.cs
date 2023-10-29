@@ -41,9 +41,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.danhsachdiem = new System.Windows.Forms.DataGridView();
             this.updatebtn = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachdiem)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,9 +95,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.updatebtn);
             this.groupBox1.Controls.Add(this.lanthi);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.mamon);
             this.groupBox1.Controls.Add(this.hocky);
             this.groupBox1.Controls.Add(this.malop);
@@ -107,7 +108,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1566, 439);
+            this.groupBox1.Size = new System.Drawing.Size(1268, 439);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập điểm";
@@ -162,11 +163,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(51, 338);
+            this.button1.Location = new System.Drawing.Point(38, 203);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 57);
+            this.button1.Size = new System.Drawing.Size(229, 57);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Search";
+            this.button1.Text = "Tìm Kiếm";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -175,7 +176,7 @@
             this.groupBox2.Controls.Add(this.danhsachdiem);
             this.groupBox2.Location = new System.Drawing.Point(29, 469);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1569, 711);
+            this.groupBox2.Size = new System.Drawing.Size(1605, 711);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách điểm";
@@ -190,25 +191,48 @@
             this.danhsachdiem.Name = "danhsachdiem";
             this.danhsachdiem.RowHeadersWidth = 82;
             this.danhsachdiem.RowTemplate.Height = 33;
-            this.danhsachdiem.Size = new System.Drawing.Size(1563, 681);
+            this.danhsachdiem.Size = new System.Drawing.Size(1599, 681);
             this.danhsachdiem.TabIndex = 0;
             this.danhsachdiem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachdiem_CellEndEdit);
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(296, 337);
+            this.updatebtn.Location = new System.Drawing.Point(38, 302);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(150, 58);
+            this.updatebtn.Size = new System.Drawing.Size(229, 58);
             this.updatebtn.TabIndex = 26;
-            this.updatebtn.Text = "Update";
+            this.updatebtn.Text = "Cập Nhật";
             this.updatebtn.UseVisualStyleBackColor = true;
             this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.updatebtn);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Location = new System.Drawing.Point(1325, 23);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(309, 439);
+            this.groupBox3.TabIndex = 26;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Thao Tác";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(38, 100);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(229, 60);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Làm Mới";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Quanlydiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1620, 1209);
+            this.ClientSize = new System.Drawing.Size(1662, 1209);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -218,6 +242,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.danhsachdiem)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -236,5 +261,7 @@
         private System.Windows.Forms.ComboBox malop;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button updatebtn;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button2;
     }
 }

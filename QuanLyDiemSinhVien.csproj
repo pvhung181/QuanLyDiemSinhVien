@@ -71,11 +71,14 @@
     <Compile Include="Repository\ChucVuRepository.cs" />
     <Compile Include="Repository\ChuyenNganhRepository.cs" />
     <Compile Include="Repository\DanTocRepository.cs" />
+    <Compile Include="Repository\DiemRepository.cs" />
     <Compile Include="Repository\HeDTRepository.cs" />
     <Compile Include="Repository\KhoaRepository.cs" />
     <Compile Include="Repository\LopRepository.cs" />
+    <Compile Include="Repository\MonHocRepository.cs" />
     <Compile Include="Repository\QueRepository.cs" />
     <Compile Include="Repository\SinhVienRepository.cs" />
+    <Compile Include="Repository\TKBRepository.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

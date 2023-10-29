@@ -1,4 +1,5 @@
-﻿using QuanLyDiemSinhVien.Repository;
+﻿using QuanLyDiemSinhVien.Forms;
+using QuanLyDiemSinhVien.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -330,6 +331,5 @@ namespace QuanLyDiemSinhVien
             string sql = SinhVienRepository.GET_ALL + whereClause;
             return sql;
         }
-
     }
 }

@@ -49,7 +49,7 @@ namespace QuanLyDiemSinhVien
         }
 
         //form
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             string que = tkque.Text;
             string khoa = tkkhoa.Text;
@@ -57,10 +57,10 @@ namespace QuanLyDiemSinhVien
             string sql = loadSqlForSearch(que, khoa, cn);
             DataTable dt = svRepository.getStudentsWithWhereClause(sql);
             dataGridView1.DataSource = dt;
-
         }
 
-        private void lammoitk_Click(object sender, EventArgs e)
+
+        private void lammoitk_Click_1(object sender, EventArgs e)
         {
             tkque.SelectedIndex = -1;
             tkkhoa.SelectedIndex = -1;
@@ -68,14 +68,15 @@ namespace QuanLyDiemSinhVien
             reloadDataGridView();
         }
 
-        private void tkkhoa_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void tkkhoa_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string item = tkkhoa.Text;
             tkchuyennghanh.SelectedIndex = -1;
             loadValuesOfCombox(tkchuyennghanh, chuyenNganhRepository.getMCNByMaKhoa(item));
         }
 
-        private void makhoa_TextChanged(object sender, EventArgs e)
+        private void makhoa_TextChanged_1(object sender, EventArgs e)
         {
             string item = makhoa.Text;
             if (item == null || item == "")
@@ -85,7 +86,8 @@ namespace QuanLyDiemSinhVien
             }
         }
 
-        private void makhoa_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void makhoa_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string item = makhoa.Text;
             malop.SelectedIndex = -1;
@@ -94,7 +96,8 @@ namespace QuanLyDiemSinhVien
             loadValuesOfCombox(machuyennganh, chuyenNganhRepository.getMCNByMaKhoa(item));
         }
 
-        private void malop_SelectionChangeCommitted(object sender, EventArgs e)
+
+        private void malop_SelectionChangeCommitted_1(object sender, EventArgs e)
         {
             string item = malop.Text;
             DataTable dt = svRepository.getStudentsByMaLop(item);
@@ -104,7 +107,8 @@ namespace QuanLyDiemSinhVien
             dataGridView1.Refresh();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
             if (!isValid()) return;
             if (isExists()) return;
@@ -121,7 +125,7 @@ namespace QuanLyDiemSinhVien
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             if (msv.Text == null || msv.Text == "" || msv.Text.Length > 10)
             {
@@ -139,10 +143,9 @@ namespace QuanLyDiemSinhVien
                 }
                 else MessageBox.Show("Xóa sinh viên thất bại !", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click_1(object sender, EventArgs e)
         {
             if (!isValid()) return;
             string sql = loadUserForUpdate();
@@ -155,7 +158,8 @@ namespace QuanLyDiemSinhVien
             else MessageBox.Show("Cập nhật sinh viên thất bại !", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.Update();
             DataGridViewRow row = dataGridView1.CurrentRow;
@@ -173,10 +177,11 @@ namespace QuanLyDiemSinhVien
             machucvu.Text = row.Cells[10].Value?.ToString();
         }
 
-        private void lammoi_Click(object sender, EventArgs e)
+        private void lammoi_Click_1(object sender, EventArgs e)
         {
             clearInput();
         }
+
         //utility function
 
         public void loadDefaultValueOfAllCombobox()
@@ -317,7 +322,7 @@ namespace QuanLyDiemSinhVien
             string whereClause = $"";
             if(que != null && que != "")
             {
-                whereClause += $" tenque = '{que}' ";
+                whereClause += $" tenque = N'{que}' ";
                 if (khoa != null && khoa != "") whereClause += $" and sv.MaKhoa = '{khoa}' ";
                 if(cn != null && cn != "") whereClause += $" and sv.MaCN = '{cn}' ";
             }
@@ -340,7 +345,7 @@ namespace QuanLyDiemSinhVien
         {
 
             f.TopLevel = false;
-            //no border if needed
+
             f.FormBorderStyle = FormBorderStyle.None;
             f.AutoScaleMode = AutoScaleMode.Dpi;
 
@@ -353,6 +358,7 @@ namespace QuanLyDiemSinhVien
             }
             Refresh();
         }
+
 
     }
 }

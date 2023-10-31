@@ -30,7 +30,6 @@
 		{
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -70,6 +69,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -103,16 +103,6 @@
             this.tabPage1.Text = "Quản lý sinh viên";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(8, 39);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1685, 1106);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Quản lý điểm";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button2);
@@ -134,6 +124,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button4
             // 
@@ -144,6 +135,7 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // button3
             // 
@@ -154,6 +146,7 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // groupBox3
             // 
@@ -197,6 +190,7 @@
             this.lammoi.TabIndex = 10;
             this.lammoi.Text = "Làm mới";
             this.lammoi.UseVisualStyleBackColor = true;
+            this.lammoi.Click += new System.EventHandler(this.lammoi_Click_1);
             // 
             // ngaysinh
             // 
@@ -281,6 +275,7 @@
             this.malop.Name = "malop";
             this.malop.Size = new System.Drawing.Size(296, 39);
             this.malop.TabIndex = 3;
+            this.malop.SelectionChangeCommitted += new System.EventHandler(this.malop_SelectionChangeCommitted_1);
             // 
             // machuyennganh
             // 
@@ -303,6 +298,8 @@
             this.makhoa.Name = "makhoa";
             this.makhoa.Size = new System.Drawing.Size(296, 33);
             this.makhoa.TabIndex = 6;
+            this.makhoa.SelectedIndexChanged += new System.EventHandler(this.makhoa_SelectedIndexChanged_1);
+            this.makhoa.TextChanged += new System.EventHandler(this.makhoa_TextChanged_1);
             // 
             // label10
             // 
@@ -479,6 +476,7 @@
             this.tkkhoa.Name = "tkkhoa";
             this.tkkhoa.Size = new System.Drawing.Size(288, 39);
             this.tkkhoa.TabIndex = 9;
+            this.tkkhoa.SelectedIndexChanged += new System.EventHandler(this.tkkhoa_SelectedIndexChanged_1);
             // 
             // tkque
             // 
@@ -497,6 +495,7 @@
             this.lammoitk.TabIndex = 7;
             this.lammoitk.Text = "Làm mới";
             this.lammoitk.UseVisualStyleBackColor = true;
+            this.lammoitk.Click += new System.EventHandler(this.lammoitk_Click_1);
             // 
             // label14
             // 
@@ -529,6 +528,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Tìm kiếm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label1
             // 
@@ -564,6 +564,17 @@
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1677, 441);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(8, 39);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1685, 1106);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Quản lý điểm";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

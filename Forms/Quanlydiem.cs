@@ -122,14 +122,8 @@ namespace QuanLyDiemSinhVien.Forms
             }
             string key = danhsachdiem.Rows[e.RowIndex].Cells[0].Value.ToString();
             string value = danhsachdiem.Rows[e.RowIndex].Cells[6].Value.ToString();
-            try
-            {
-                editedCells.Add(key, value);
-            }
-            catch
-            {
-                editedCells[key] = value;
-            }
+            if(editedCells.ContainsKey(key)) editedCells[key] = value;
+            else editedCells.Add(key, value);
         }
 
         private void updatebtn_Click(object sender, EventArgs e)

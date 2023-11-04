@@ -42,6 +42,9 @@
             this.danhsachdiem = new System.Windows.Forms.DataGridView();
             this.updatebtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,7 +111,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1268, 439);
+            this.groupBox1.Size = new System.Drawing.Size(1268, 304);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập điểm";
@@ -163,7 +166,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(38, 203);
+            this.button1.Location = new System.Drawing.Point(38, 338);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(229, 57);
             this.button1.TabIndex = 0;
@@ -174,9 +177,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.danhsachdiem);
-            this.groupBox2.Location = new System.Drawing.Point(29, 469);
+            this.groupBox2.Location = new System.Drawing.Point(29, 334);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1605, 711);
+            this.groupBox2.Size = new System.Drawing.Size(1268, 846);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách điểm";
@@ -191,13 +194,13 @@
             this.danhsachdiem.Name = "danhsachdiem";
             this.danhsachdiem.RowHeadersWidth = 82;
             this.danhsachdiem.RowTemplate.Height = 33;
-            this.danhsachdiem.Size = new System.Drawing.Size(1599, 681);
+            this.danhsachdiem.Size = new System.Drawing.Size(1262, 816);
             this.danhsachdiem.TabIndex = 0;
             this.danhsachdiem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachdiem_CellEndEdit);
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(38, 302);
+            this.updatebtn.Location = new System.Drawing.Point(38, 488);
             this.updatebtn.Name = "updatebtn";
             this.updatebtn.Size = new System.Drawing.Size(229, 58);
             this.updatebtn.TabIndex = 26;
@@ -207,19 +210,50 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.updatebtn);
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Location = new System.Drawing.Point(1325, 23);
+            this.groupBox3.Location = new System.Drawing.Point(1325, 42);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(309, 439);
+            this.groupBox3.Size = new System.Drawing.Size(309, 1138);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thao Tác";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(38, 957);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(229, 66);
+            this.button5.TabIndex = 30;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(38, 789);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(229, 60);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(38, 635);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(229, 70);
+            this.button3.TabIndex = 28;
+            this.button3.Text = "Xuất Excel";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(38, 100);
+            this.button2.Location = new System.Drawing.Point(38, 179);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(229, 60);
             this.button2.TabIndex = 27;
@@ -263,5 +297,8 @@
         private System.Windows.Forms.Button updatebtn;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button2;
-    }
+		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button button5;
+	}
 }

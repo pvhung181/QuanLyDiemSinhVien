@@ -8,9 +8,11 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace QuanLyDiemSinhVien
 {
@@ -25,6 +27,7 @@ namespace QuanLyDiemSinhVien
         HeDTRepository heDTRepository;
         QueRepository queRepository;
         DanTocRepository danTocRepository;
+        DiemRepository diemRepository;
 
         public Form1()
         {
@@ -37,6 +40,7 @@ namespace QuanLyDiemSinhVien
             heDTRepository = new HeDTRepository();
             queRepository = new QueRepository();
             danTocRepository = new DanTocRepository();
+            diemRepository = new DiemRepository();
 
             // initial datasource gridview
             dataGridView1.DataSource = svRepository.getAllStudents();
@@ -54,8 +58,8 @@ namespace QuanLyDiemSinhVien
             string que = tkque.Text;
             string khoa = tkkhoa.Text;
             string cn = tkchuyennghanh.Text;
-            string sql = loadSqlForSearch(que, khoa, cn);
-            DataTable dt = svRepository.getStudentsWithWhereClause(sql);
+           // string sql = loadSqlForSearch(que, khoa, cn);
+            DataTable dt = svRepository.getStudentsWithWhereClause2(que, khoa, cn);
             dataGridView1.DataSource = dt;
         }
 
@@ -251,7 +255,7 @@ namespace QuanLyDiemSinhVien
 
         public bool isExists()
         {
-            if (svRepository.countStudentById(msv.Text) != 0)
+            if (svRepository.isExists(msv.Text))
             {
                 MessageBox.Show("Đã tồn tại mã sinh viên vui lòng nhập lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
@@ -317,30 +321,7 @@ namespace QuanLyDiemSinhVien
             return dt;
         }
 
-        public string loadSqlForSearch(string que, string khoa, string cn)
-        {
-            string whereClause = $"";
-            if(que != null && que != "")
-            {
-                whereClause += $" tenque = N'{que}' ";
-                if (khoa != null && khoa != "") whereClause += $" and sv.MaKhoa = '{khoa}' ";
-                if(cn != null && cn != "") whereClause += $" and sv.MaCN = '{cn}' ";
-            }
-            else if (khoa != null && khoa != "")
-            {
-                whereClause += $" sv.MaKhoa = '{khoa}' ";
-                if (cn != null && cn != "") whereClause += $" and sv.MaCN = '{cn}' ";
-            }
-            else if(cn != null && khoa != "")
-            {
-                whereClause += $" sv.MaCN = '{cn}' ";
-            }
-            if(whereClause != "") whereClause = " where " + whereClause;
-            string sql = SinhVienRepository.GET_ALL + whereClause;
-            return sql;
-        }
-
-        //function to ađ form
+        //function to add form
         public void addform(TabPage tp, Form f)
         {
 
@@ -359,6 +340,84 @@ namespace QuanLyDiemSinhVien
             Refresh();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(msv.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã sinh viên hoặc chọn sinh viên trong bảng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            if(!svRepository.isExists(msv.Text))
+            {
+                MessageBox.Show("Sinh viên không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msv.Focus();
+                return;
+            }
+
+           if(diemRepository.getDiemById(msv.Text).Rows.Count == 0)
+            {
+                MessageBox.Show("Sinh viên không có bảng điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            Excel.Application exApp = new Excel.Application();
+            exApp.Visible = false;
+            Excel.Workbook exWorkbook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+            Excel.Worksheet exSheet = exWorkbook.Worksheets[1];
+            exSheet.EnableSelection = Excel.XlEnableSelection.xlNoSelection;
+            Excel.Range exRange = exSheet.Cells[1, 1];
+            DataTable bd = diemRepository.getDiemById(msv.Text);
+
+            exSheet.Range["A1"].Value = "Bảng điểm của sinh viên " + svRepository.getStudentById(msv.Text) + " - " + msv.Text.ToString();
+
+            exSheet.Range["A4"].Value = "STT";
+            exSheet.Range["B4"].Value = "Mã Sinh Viên";
+            exSheet.Range["C4"].Value = "Họ Và Tên";
+            exSheet.Range["D4"].Value = "Lớp";
+            exSheet.Range["E4"].Value = "Môn Học";
+            exSheet.Range["F4"].Value = "Học Kỳ";
+            exSheet.Range["G4"].Value = "Lần Thi";
+            exSheet.Range["H4"].Value = "Điểm";
+
+            exSheet.Range["B:B"].ColumnWidth = 12;
+            exSheet.Range["C:C"].ColumnWidth = 18;
+            exSheet.Range["E:E"].ColumnWidth = 15;
+
+            exSheet.Range["A1"].Font.Color = Color.Red;
+            exSheet.Range["A1"].Font.Size = 18;
+
+   
+            exSheet.Range["A1:F1"].Merge();
+
+            exSheet.Range["A1:F1"].MergeCells = true;
+            exSheet.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+            int rowStart = 5;
+
+            for(int i = 0; i < bd.Rows.Count; i++)
+            {
+                exSheet.Range["A" + (rowStart + i)].Value = i + 1;
+                exSheet.Range["B" + (rowStart + i)].Value = bd.Rows[i][0].ToString();
+                exSheet.Range["C" + (rowStart + i)].Value = bd.Rows[i][1].ToString();
+                exSheet.Range["D" + (rowStart + i)].Value = bd.Rows[i][2].ToString();
+                exSheet.Range["E" + (rowStart + i)].Value = bd.Rows[i][3].ToString();
+                exSheet.Range["F" + (rowStart + i)].Value = bd.Rows[i][4].ToString();
+                exSheet.Range["G" + (rowStart + i)].Value = bd.Rows[i][5].ToString();
+                exSheet.Range["H" + (rowStart + i)].Value = bd.Rows[i][6].ToString();
+            }
+
+            exWorkbook.Activate();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Document(*.xls)|*.xls |Word Document(*.doc)| *.doc | All files(*.*) | *.* ";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.AddExtension = true;
+            saveFileDialog.DefaultExt = ".xls";
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                exWorkbook.SaveAs(saveFileDialog.FileName);
+            }
+            Marshal.ReleaseComObject(exWorkbook);
+            exApp.Quit();
+        }
     }
 }

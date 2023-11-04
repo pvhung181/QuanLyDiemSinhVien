@@ -28,6 +28,14 @@ namespace QuanLyDiemSinhVien.Repository
             return students;
         }
 
+        public string getStudentById(string msv)
+        {
+            string sql = $"select TenSV from SinhVien where MaSv = '{msv}'";
+            DataTable dt = db.readData(sql);
+            string res = dt.Rows[0][0].ToString();
+            return res;
+        }
+
         public DataTable getStudentsByMaLop(string maLop)
         {
             string sql = $"{GET_ALL} where MaLop = '{maLop}'";
@@ -41,11 +49,37 @@ namespace QuanLyDiemSinhVien.Repository
             return students;
         }
 
-        public int countStudentById(string id)
+
+        public DataTable getStudentsWithWhereClause2(string que, string khoa, string cn)
+        {
+            string whereClause = $"";
+            if (que != null && que != "")
+            {
+                whereClause += $" tenque = N'{que}' ";
+                if (khoa != null && khoa != "") whereClause += $" and sv.MaKhoa = '{khoa}' ";
+                if (cn != null && cn != "") whereClause += $" and sv.MaCN = '{cn}' ";
+            }
+            else if (khoa != null && khoa != "")
+            {
+                whereClause += $" sv.MaKhoa = '{khoa}' ";
+                if (cn != null && cn != "") whereClause += $" and sv.MaCN = '{cn}' ";
+            }
+            else if (cn != null && khoa != "")
+            {
+                whereClause += $" sv.MaCN = '{cn}' ";
+            }
+            if (whereClause != "") whereClause = " where " + whereClause;
+            string sql = GET_ALL + whereClause;
+            DataTable students = db.readData(sql);
+            return students;
+        }
+
+        public bool isExists(string id)
         {
             string sql = $"select count(*) from sinhvien where Masv = '{id}'";
             int count = Convert.ToInt32(db.readData(sql).Rows[0][0]);
-            return count;
+            if(count == 1) return true;
+            return false;
         }
 
         public bool persistStudent(string sql)

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace QuanLyDiemSinhVien.Forms
 {
@@ -44,23 +45,13 @@ namespace QuanLyDiemSinhVien.Forms
         private void malop_SelectedValueChanged(object sender, EventArgs e)
         {
             if ((hocky.Text != null && hocky.SelectedIndex != -1) || (hocky.Text != "" && hocky.SelectedIndex != -1))
-            {
-                string sql = $"select TenMon from MonHoc mh" +
-                    $" inner join TKB on mh.MaMon = tkb.MaMon" +
-                    $" where MaLop = '{malop.Text}' and HocKy = {hocky.Text}";
-                loadValuesOfCombox(mamon, tKBRepository.getTenMonHoc(sql));
-            }
+                loadValuesOfCombox(mamon, tKBRepository.getTenMonHoc(malop.Text, hocky.Text));
         }
 
         private void hocky_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((malop.Text != null && malop.SelectedIndex != -1) || (malop.Text != "" && malop.SelectedIndex != -1))
-            {
-                string sql = $"select TenMon from MonHoc mh" +
-                   $" inner join TKB on mh.MaMon = tkb.MaMon" +
-                   $" where MaLop = '{malop.Text}' and HocKy = {hocky.Text}";
-                loadValuesOfCombox(mamon, tKBRepository.getTenMonHoc(sql));
-            }
+                loadValuesOfCombox(mamon, tKBRepository.getTenMonHoc(malop.Text, hocky.Text));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,6 +64,7 @@ namespace QuanLyDiemSinhVien.Forms
             {
                 danhsachdiem.Columns[i].ReadOnly = true;
             }
+            MessageBox.Show(dt.Rows.Count.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -140,7 +132,7 @@ namespace QuanLyDiemSinhVien.Forms
                 sql += $"update Diem set Diem = {entry.Value} where Masv = '{entry.Key}'  ";
             }
 
-            bool res = diemRepository.updateMultiDiem(sql);
+            bool res = diemRepository.updateDiem(sql);
             if(res)
             {
                 MessageBox.Show("Cập nhật điểm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -160,6 +152,14 @@ namespace QuanLyDiemSinhVien.Forms
             lanthi.SelectedIndex = -1;
             danhsachdiem.DataSource = null;
             danhsachdiem.Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Excel.Application exApp = new Excel.Application();
+            Excel.Workbook exWorkbook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+            Excel.Worksheet exSheet = exWorkbook.Worksheets[1];
+            Excel.Range exRange = exSheet.Cells[1, 1];
         }
     }
 }

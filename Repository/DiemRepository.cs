@@ -36,6 +36,15 @@ namespace QuanLyDiemSinhVien.Repository
             return dataTable;
         }
 
+        public DataTable getDiemByMLMHLT(string malop, string monhoc, string lan)
+        {
+            string sql = $"select sv.MaSv [Mã sinh viên], TenSv [Họ và tên], HocKy [Học Kỳ], Diem [Điểm] " +
+                $" from SinhVien sv join Diem d on sv.MaSv = d.MaSv " +
+                $" where d.Malop = '{malop}' and MaMon = '{monhoc}' and LanThi = {lan}";
+            DataTable dt = db.readData(sql);
+            return dt;
+        }
+
         public bool updateDiem(string sql)
         {
             try

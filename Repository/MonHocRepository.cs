@@ -24,6 +24,13 @@ namespace QuanLyDiemSinhVien.Repository
             return dataTable;
         }
 
+        public string getMonHocById(string id)
+        {
+            string sql = $"select TenMon from MonHoc where MaMon = '{id}'";
+            DataTable dataTable = db.readData(sql);
+            return dataTable.Rows[0][0].ToString();
+        }
+
         public string getMaMonByTen(string ten)
         {
             string sql = $"select MaMon from MonHoc where TenMon = N'{ten}'";

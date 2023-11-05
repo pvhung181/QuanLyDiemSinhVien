@@ -225,7 +225,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(38, 789);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(229, 60);
+            this.button4.Size = new System.Drawing.Size(229, 71);
             this.button4.TabIndex = 29;
             this.button4.Text = "In thời khóa biểu";
             this.button4.UseVisualStyleBackColor = true;
@@ -237,15 +237,15 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(229, 70);
             this.button3.TabIndex = 28;
-            this.button3.Text = "Xuất Excel";
+            this.button3.Text = "In bảng điểm";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(38, 179);
+            this.button2.Location = new System.Drawing.Point(38, 171);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(229, 60);
+            this.button2.Size = new System.Drawing.Size(229, 68);
             this.button2.TabIndex = 27;
             this.button2.Text = "Làm Mới";
             this.button2.UseVisualStyleBackColor = true;
@@ -255,13 +255,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1662, 1209);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Quanlydiem";
-            this.Text = "Quanlydiem";
+            this.Text = "Quản Lý Điểm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -289,5 +290,5 @@
         private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Button button3;
-	}
+    }
 }

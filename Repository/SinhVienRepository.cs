@@ -50,7 +50,7 @@ namespace QuanLyDiemSinhVien.Repository
         }
 
 
-        public DataTable getStudentsWithWhereClause2(string que, string khoa, string cn)
+        public DataTable getStudentsWith(string que, string khoa, string cn)
         {
             string whereClause = $"";
             if (que != null && que != "")
@@ -64,7 +64,7 @@ namespace QuanLyDiemSinhVien.Repository
                 whereClause += $" sv.MaKhoa = '{khoa}' ";
                 if (cn != null && cn != "") whereClause += $" and sv.MaCN = '{cn}' ";
             }
-            else if (cn != null && khoa != "")
+            else if (cn != null && cn != "")
             {
                 whereClause += $" sv.MaCN = '{cn}' ";
             }

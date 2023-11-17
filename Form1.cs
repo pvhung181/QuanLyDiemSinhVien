@@ -58,8 +58,7 @@ namespace QuanLyDiemSinhVien
             string que = tkque.Text;
             string khoa = tkkhoa.Text;
             string cn = tkchuyennghanh.Text;
-           // string sql = loadSqlForSearch(que, khoa, cn);
-            DataTable dt = svRepository.getStudentsWithWhereClause2(que, khoa, cn);
+            DataTable dt = svRepository.getStudentsWith(que, khoa, cn);
             dataGridView1.DataSource = dt;
         }
 
@@ -90,7 +89,6 @@ namespace QuanLyDiemSinhVien
             }
         }
 
-
         private void makhoa_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string item = makhoa.Text;
@@ -103,16 +101,16 @@ namespace QuanLyDiemSinhVien
 
         private void malop_SelectionChangeCommitted_1(object sender, EventArgs e)
         {
-            string item = malop.Text;
-            DataTable dt = svRepository.getStudentsByMaLop(item);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = dt;
-            dataGridView1.Update();
-            dataGridView1.Refresh();
-        }
+			string item = malop.Text;
+			DataTable dt = svRepository.getStudentsByMaLop(item);
+			dataGridView1.DataSource = null;
+			dataGridView1.DataSource = dt;
+			dataGridView1.Update();
+			dataGridView1.Refresh();
+		}
 
 
-        private void button2_Click_1(object sender, EventArgs e)
+		private void button2_Click_1(object sender, EventArgs e)
         {
             if (!isValid()) return;
             if (isExists()) return;
@@ -419,5 +417,6 @@ namespace QuanLyDiemSinhVien
             Marshal.ReleaseComObject(exWorkbook);
             exApp.Quit();
         }
-    }
+
+	}
 }

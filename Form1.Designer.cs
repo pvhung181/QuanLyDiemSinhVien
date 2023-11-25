@@ -71,6 +71,9 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.button6 = new System.Windows.Forms.Button();
+			this.button7 = new System.Windows.Forms.Button();
+			this.button8 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
@@ -219,8 +222,10 @@
 			// 
 			this.dantoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.dantoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.dantoc.DropDownHeight = 60;
 			this.dantoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.dantoc.FormattingEnabled = true;
+			this.dantoc.IntegralHeight = false;
 			this.dantoc.Location = new System.Drawing.Point(780, 285);
 			this.dantoc.Name = "dantoc";
 			this.dantoc.Size = new System.Drawing.Size(278, 39);
@@ -230,8 +235,10 @@
 			// 
 			this.que.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.que.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.que.DropDownHeight = 60;
 			this.que.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.que.FormattingEnabled = true;
+			this.que.IntegralHeight = false;
 			this.que.Location = new System.Drawing.Point(780, 129);
 			this.que.Name = "que";
 			this.que.Size = new System.Drawing.Size(278, 39);
@@ -287,7 +294,7 @@
 			this.malop.Name = "malop";
 			this.malop.Size = new System.Drawing.Size(296, 39);
 			this.malop.TabIndex = 3;
-			this.malop.SelectionChangeCommitted += new System.EventHandler(this.malop_SelectionChangeCommitted_1);
+			this.malop.SelectedIndexChanged += new System.EventHandler(this.malop_SelectedIndexChanged);
 			// 
 			// machuyennganh
 			// 
@@ -454,6 +461,9 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.button8);
+			this.groupBox2.Controls.Add(this.button7);
+			this.groupBox2.Controls.Add(this.button6);
 			this.groupBox2.Controls.Add(this.tkchuyennghanh);
 			this.groupBox2.Controls.Add(this.tkkhoa);
 			this.groupBox2.Controls.Add(this.tkque);
@@ -475,22 +485,24 @@
 			// 
 			this.tkchuyennghanh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.tkchuyennghanh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.tkchuyennghanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.tkchuyennghanh.DropDownHeight = 60;
+			this.tkchuyennghanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
 			this.tkchuyennghanh.FormattingEnabled = true;
+			this.tkchuyennghanh.IntegralHeight = false;
 			this.tkchuyennghanh.Location = new System.Drawing.Point(268, 180);
 			this.tkchuyennghanh.Name = "tkchuyennghanh";
-			this.tkchuyennghanh.Size = new System.Drawing.Size(288, 39);
+			this.tkchuyennghanh.Size = new System.Drawing.Size(288, 45);
 			this.tkchuyennghanh.TabIndex = 10;
 			// 
 			// tkkhoa
 			// 
 			this.tkkhoa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.tkkhoa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.tkkhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.tkkhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
 			this.tkkhoa.FormattingEnabled = true;
 			this.tkkhoa.Location = new System.Drawing.Point(268, 112);
 			this.tkkhoa.Name = "tkkhoa";
-			this.tkkhoa.Size = new System.Drawing.Size(288, 39);
+			this.tkkhoa.Size = new System.Drawing.Size(288, 45);
 			this.tkkhoa.TabIndex = 9;
 			this.tkkhoa.SelectedIndexChanged += new System.EventHandler(this.tkkhoa_SelectedIndexChanged_1);
 			// 
@@ -498,11 +510,13 @@
 			// 
 			this.tkque.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.tkque.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.tkque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.tkque.DropDownHeight = 60;
+			this.tkque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
 			this.tkque.FormattingEnabled = true;
+			this.tkque.IntegralHeight = false;
 			this.tkque.Location = new System.Drawing.Point(268, 40);
 			this.tkque.Name = "tkque";
-			this.tkque.Size = new System.Drawing.Size(288, 39);
+			this.tkque.Size = new System.Drawing.Size(288, 45);
 			this.tkque.TabIndex = 8;
 			// 
 			// lammoitk
@@ -596,6 +610,33 @@
 			this.tabPage2.Text = "Quản lý điểm";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
+			// button6
+			// 
+			this.button6.Location = new System.Drawing.Point(571, 40);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(48, 37);
+			this.button6.TabIndex = 11;
+			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.button6_Click);
+			// 
+			// button7
+			// 
+			this.button7.Location = new System.Drawing.Point(571, 112);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(48, 39);
+			this.button7.TabIndex = 12;
+			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.button7_Click);
+			// 
+			// button8
+			// 
+			this.button8.Location = new System.Drawing.Point(571, 182);
+			this.button8.Name = "button8";
+			this.button8.Size = new System.Drawing.Size(48, 43);
+			this.button8.TabIndex = 13;
+			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.button8_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -605,6 +646,7 @@
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Margin = new System.Windows.Forms.Padding(2);
+			this.MaximizeBox = false;
 			this.Name = "Form1";
 			this.Text = "Quản lý điểm sinh viên";
 			this.tabControl1.ResumeLayout(false);
@@ -665,6 +707,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button5;
-    }
+		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button button8;
+		private System.Windows.Forms.Button button7;
+	}
 }
 

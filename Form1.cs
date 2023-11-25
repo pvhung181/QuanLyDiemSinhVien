@@ -28,7 +28,7 @@ namespace QuanLyDiemSinhVien
         QueRepository queRepository;
         DanTocRepository danTocRepository;
         DiemRepository diemRepository;
-
+        bool run = true;
         public Form1()
         {
             InitializeComponent();
@@ -50,7 +50,11 @@ namespace QuanLyDiemSinhVien
             this.Size = new Size(880, 715);
             tabControl1.Size = new Size(880, 715);
             addform(tabPage2, new Quanlydiem());
-        }
+
+            setRefreshBtn(button6);
+            setRefreshBtn(button7);
+            setRefreshBtn(button8);
+		}
 
         //form
         private void button1_Click_1(object sender, EventArgs e)
@@ -68,6 +72,7 @@ namespace QuanLyDiemSinhVien
             tkque.SelectedIndex = -1;
             tkkhoa.SelectedIndex = -1;
             tkchuyennghanh.SelectedIndex = -1;
+            loadValuesOfCombox(tkchuyennghanh, chuyenNganhRepository.getAllMCN());
             reloadDataGridView();
         }
 
@@ -76,7 +81,8 @@ namespace QuanLyDiemSinhVien
         {
             string item = tkkhoa.Text;
             tkchuyennghanh.SelectedIndex = -1;
-            loadValuesOfCombox(tkchuyennghanh, chuyenNganhRepository.getMCNByMaKhoa(item));
+			if (item == "") return;
+			loadValuesOfCombox(tkchuyennghanh, chuyenNganhRepository.getMCNByMaKhoa(item));
         }
 
         private void makhoa_TextChanged_1(object sender, EventArgs e)
@@ -99,8 +105,9 @@ namespace QuanLyDiemSinhVien
         }
 
 
-        private void malop_SelectionChangeCommitted_1(object sender, EventArgs e)
-        {
+		private void malop_SelectedIndexChanged(object sender, EventArgs e)
+		{
+            if (!run) return;
 			string item = malop.Text;
 			DataTable dt = svRepository.getStudentsByMaLop(item);
 			dataGridView1.DataSource = null;
@@ -108,7 +115,6 @@ namespace QuanLyDiemSinhVien
 			dataGridView1.Update();
 			dataGridView1.Refresh();
 		}
-
 
 		private void button2_Click_1(object sender, EventArgs e)
         {
@@ -160,15 +166,16 @@ namespace QuanLyDiemSinhVien
             else MessageBox.Show("Cập nhật sinh viên thất bại !", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-
+        // ......
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            run = false;
             dataGridView1.Update();
             DataGridViewRow row = dataGridView1.CurrentRow;
-            msv.Text = row.Cells[0].Value?.ToString();
+			makhoa.Text = row.Cells[2].Value?.ToString();
+			malop.Text = row.Cells[3].Value?.ToString();
+			msv.Text = row.Cells[0].Value?.ToString();
             hoten.Text = row.Cells[1].Value?.ToString();
-            makhoa.Text = row.Cells[2].Value?.ToString();
-            malop.Text = row.Cells[3].Value?.ToString();
             string[] s = row.Cells[4].Value?.ToString().Split('/');
             ngaysinh.Value = new DateTime(Convert.ToInt32(s[2].Substring(0, 4)), Convert.ToInt32(s[0]), Convert.ToInt32(s[1]));
             gioitinh.Text = row.Cells[5].Value?.ToString();
@@ -177,11 +184,14 @@ namespace QuanLyDiemSinhVien
             machuyennganh.Text = row.Cells[8].Value?.ToString();
             mahdt.Text = row.Cells[9].Value?.ToString();
             machucvu.Text = row.Cells[10].Value?.ToString();
+            run = true;
         }
 
         private void lammoi_Click_1(object sender, EventArgs e)
         {
+            run = false;
             clearInput();
+            run = true;
         }
 
         //utility function
@@ -418,5 +428,28 @@ namespace QuanLyDiemSinhVien
             exApp.Quit();
         }
 
+        public void setRefreshBtn(Button bt, int size = 12, int with = 30, int height = 30)
+        {
+			bt.Font = new Font("Wingdings 3", size, FontStyle.Bold);
+			bt.Text = Char.ConvertFromUtf32(80); // or 80
+			bt.Width = with;
+			bt.Height = height;
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+            tkque.SelectedIndex = -1;
+		}
+
+		private void button7_Click(object sender, EventArgs e)
+		{
+            tkkhoa.SelectedIndex = -1;
+            loadValuesOfCombox(tkchuyennghanh, chuyenNganhRepository.getAllMCN());
+		}
+
+		private void button8_Click(object sender, EventArgs e)
+		{
+            tkchuyennghanh.SelectedIndex = -1;
+		}
 	}
 }

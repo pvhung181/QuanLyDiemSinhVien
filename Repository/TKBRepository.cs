@@ -50,7 +50,7 @@ namespace QuanLyDiemSinhVien.Repository
         public List<string> getLopByHK(string hk)
         {
             List<string> list = new List<string>();
-            string sql = $"select MaLop from TKB where hocky = '{hk}'";
+            string sql = $"select MaLop from TKB where hocky = '{hk}' group by malop";
             DataTable dt = db.readData(sql);
             foreach (DataRow dr in dt.Rows)
             {

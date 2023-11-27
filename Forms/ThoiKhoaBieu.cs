@@ -83,7 +83,7 @@ namespace QuanLyDiemSinhVien.Forms
 				{
 					list.Add(oWB.Sheets.Add(Type.Missing, Type.Missing, 1, Type.Missing) as Excel.Worksheet);
 				}
-				list[item].Name = lops[item];
+				//list[item].Name = lops[item];
 				list[item].Range["A1"].Value = "Thời khóa biểu lớp " + lopRepository.getTenLopByMaLop(lops[item]) + " - Học kỳ " + hocky.Text;
 				list[item].Range["A1"].Font.Color = Color.Red;
 				list[item].Range["A1"].Font.Size = 18;

@@ -124,8 +124,11 @@ namespace QuanLyDiemSinhVien
             if (svRepository.persistStudent(sql))
             {
                 MessageBox.Show("Lưu sinh viên thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 reloadDataGridView();
-                clearInput();
+				run = false;
+				clearInput();
+                run = true;
             }
             else
             {
@@ -156,6 +159,8 @@ namespace QuanLyDiemSinhVien
         private void button4_Click_1(object sender, EventArgs e)
         {
             if (!isValid()) return;
+            if (MessageBox.Show("Bạn có muốn sửa không ?", "Thông báo", 
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel) return;
             string sql = loadUserForUpdate();
             bool result = svRepository.persistStudent(sql);
             if (result)

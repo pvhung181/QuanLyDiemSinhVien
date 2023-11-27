@@ -106,11 +106,11 @@
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(29, 23);
+			this.groupBox1.Location = new System.Drawing.Point(15, 23);
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-			this.groupBox1.Size = new System.Drawing.Size(1268, 304);
+			this.groupBox1.Size = new System.Drawing.Size(1301, 304);
 			this.groupBox1.TabIndex = 24;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Nhập điểm";
@@ -176,9 +176,9 @@
 			// groupBox2
 			// 
 			this.groupBox2.Controls.Add(this.danhsachdiem);
-			this.groupBox2.Location = new System.Drawing.Point(29, 334);
+			this.groupBox2.Location = new System.Drawing.Point(12, 334);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(1268, 846);
+			this.groupBox2.Size = new System.Drawing.Size(1307, 846);
 			this.groupBox2.TabIndex = 25;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Danh sách điểm";
@@ -191,15 +191,16 @@
 			this.danhsachdiem.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.danhsachdiem.Location = new System.Drawing.Point(3, 27);
 			this.danhsachdiem.Name = "danhsachdiem";
+			this.danhsachdiem.RowHeadersVisible = false;
 			this.danhsachdiem.RowHeadersWidth = 82;
 			this.danhsachdiem.RowTemplate.Height = 33;
-			this.danhsachdiem.Size = new System.Drawing.Size(1262, 816);
+			this.danhsachdiem.Size = new System.Drawing.Size(1301, 816);
 			this.danhsachdiem.TabIndex = 0;
 			this.danhsachdiem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachdiem_CellEndEdit);
 			// 
 			// updatebtn
 			// 
-			this.updatebtn.Location = new System.Drawing.Point(38, 488);
+			this.updatebtn.Location = new System.Drawing.Point(38, 500);
 			this.updatebtn.Name = "updatebtn";
 			this.updatebtn.Size = new System.Drawing.Size(229, 77);
 			this.updatebtn.TabIndex = 26;
@@ -215,9 +216,9 @@
 			this.groupBox3.Controls.Add(this.updatebtn);
 			this.groupBox3.Controls.Add(this.button1);
 			this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			this.groupBox3.Location = new System.Drawing.Point(1325, 42);
+			this.groupBox3.Location = new System.Drawing.Point(1325, 23);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(309, 1138);
+			this.groupBox3.Size = new System.Drawing.Size(309, 1157);
 			this.groupBox3.TabIndex = 26;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Thao Tác";
@@ -234,7 +235,7 @@
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(38, 635);
+			this.button3.Location = new System.Drawing.Point(38, 672);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(229, 85);
 			this.button3.TabIndex = 28;

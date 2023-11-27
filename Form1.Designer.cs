@@ -60,6 +60,9 @@
 			this.msv = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.button8 = new System.Windows.Forms.Button();
+			this.button7 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
 			this.tkchuyennghanh = new System.Windows.Forms.ComboBox();
 			this.tkkhoa = new System.Windows.Forms.ComboBox();
 			this.tkque = new System.Windows.Forms.ComboBox();
@@ -71,9 +74,6 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.button6 = new System.Windows.Forms.Button();
-			this.button7 = new System.Windows.Forms.Button();
-			this.button8 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
@@ -113,6 +113,7 @@
 			this.groupBox4.Controls.Add(this.button2);
 			this.groupBox4.Controls.Add(this.button4);
 			this.groupBox4.Controls.Add(this.button3);
+			this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.groupBox4.Location = new System.Drawing.Point(1005, 469);
 			this.groupBox4.Name = "groupBox4";
 			this.groupBox4.Size = new System.Drawing.Size(681, 250);
@@ -122,9 +123,9 @@
 			// 
 			// button5
 			// 
-			this.button5.Location = new System.Drawing.Point(43, 154);
+			this.button5.Location = new System.Drawing.Point(43, 148);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(170, 65);
+			this.button5.Size = new System.Drawing.Size(170, 82);
 			this.button5.TabIndex = 10;
 			this.button5.Text = "Xuất Bảng Điểm";
 			this.button5.UseVisualStyleBackColor = true;
@@ -188,6 +189,7 @@
 			this.groupBox3.Controls.Add(this.label3);
 			this.groupBox3.Controls.Add(this.msv);
 			this.groupBox3.Controls.Add(this.label2);
+			this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.groupBox3.Location = new System.Drawing.Point(5, 5);
 			this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox3.Name = "groupBox3";
@@ -300,22 +302,24 @@
 			// 
 			this.machuyennganh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.machuyennganh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.machuyennganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.machuyennganh.Location = new System.Drawing.Point(238, 285);
 			this.machuyennganh.Margin = new System.Windows.Forms.Padding(6);
 			this.machuyennganh.Name = "machuyennganh";
-			this.machuyennganh.Size = new System.Drawing.Size(296, 33);
+			this.machuyennganh.Size = new System.Drawing.Size(296, 39);
 			this.machuyennganh.TabIndex = 6;
 			// 
 			// makhoa
 			// 
 			this.makhoa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.makhoa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.makhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.makhoa.Items.AddRange(new object[] {
             ""});
 			this.makhoa.Location = new System.Drawing.Point(238, 127);
 			this.makhoa.Margin = new System.Windows.Forms.Padding(6);
 			this.makhoa.Name = "makhoa";
-			this.makhoa.Size = new System.Drawing.Size(296, 33);
+			this.makhoa.Size = new System.Drawing.Size(296, 39);
 			this.makhoa.TabIndex = 6;
 			this.makhoa.SelectedIndexChanged += new System.EventHandler(this.makhoa_SelectedIndexChanged_1);
 			this.makhoa.TextChanged += new System.EventHandler(this.makhoa_TextChanged_1);
@@ -472,6 +476,7 @@
 			this.groupBox2.Controls.Add(this.label13);
 			this.groupBox2.Controls.Add(this.button1);
 			this.groupBox2.Controls.Add(this.label1);
+			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.groupBox2.Location = new System.Drawing.Point(5, 469);
 			this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox2.Name = "groupBox2";
@@ -480,6 +485,33 @@
 			this.groupBox2.TabIndex = 13;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Tìm kiếm";
+			// 
+			// button8
+			// 
+			this.button8.Location = new System.Drawing.Point(571, 182);
+			this.button8.Name = "button8";
+			this.button8.Size = new System.Drawing.Size(48, 43);
+			this.button8.TabIndex = 13;
+			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.button8_Click);
+			// 
+			// button7
+			// 
+			this.button7.Location = new System.Drawing.Point(571, 112);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(48, 39);
+			this.button7.TabIndex = 12;
+			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.button7_Click);
+			// 
+			// button6
+			// 
+			this.button6.Location = new System.Drawing.Point(571, 40);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(48, 37);
+			this.button6.TabIndex = 11;
+			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.button6_Click);
 			// 
 			// tkchuyennghanh
 			// 
@@ -576,6 +608,7 @@
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.dataGridView1);
+			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.groupBox1.Location = new System.Drawing.Point(5, 742);
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox1.Name = "groupBox1";
@@ -583,7 +616,7 @@
 			this.groupBox1.Size = new System.Drawing.Size(1681, 469);
 			this.groupBox1.TabIndex = 12;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Danh sách";
+			this.groupBox1.Text = "Danh sách sinh viên";
 			// 
 			// dataGridView1
 			// 
@@ -591,12 +624,13 @@
 			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(2, 26);
+			this.dataGridView1.Location = new System.Drawing.Point(2, 33);
 			this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
 			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.RowHeadersWidth = 82;
 			this.dataGridView1.RowTemplate.Height = 33;
-			this.dataGridView1.Size = new System.Drawing.Size(1677, 441);
+			this.dataGridView1.Size = new System.Drawing.Size(1677, 434);
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
 			// 
@@ -609,33 +643,6 @@
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Quản lý điểm";
 			this.tabPage2.UseVisualStyleBackColor = true;
-			// 
-			// button6
-			// 
-			this.button6.Location = new System.Drawing.Point(571, 40);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(48, 37);
-			this.button6.TabIndex = 11;
-			this.button6.UseVisualStyleBackColor = true;
-			this.button6.Click += new System.EventHandler(this.button6_Click);
-			// 
-			// button7
-			// 
-			this.button7.Location = new System.Drawing.Point(571, 112);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(48, 39);
-			this.button7.TabIndex = 12;
-			this.button7.UseVisualStyleBackColor = true;
-			this.button7.Click += new System.EventHandler(this.button7_Click);
-			// 
-			// button8
-			// 
-			this.button8.Location = new System.Drawing.Point(571, 182);
-			this.button8.Name = "button8";
-			this.button8.Size = new System.Drawing.Size(48, 43);
-			this.button8.TabIndex = 13;
-			this.button8.UseVisualStyleBackColor = true;
-			this.button8.Click += new System.EventHandler(this.button8_Click);
 			// 
 			// Form1
 			// 

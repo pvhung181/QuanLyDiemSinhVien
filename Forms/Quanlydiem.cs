@@ -79,7 +79,6 @@ namespace QuanLyDiemSinhVien.Forms
                 return false;
             }
 
-
             if (malop.SelectedIndex == -1 || mamon.SelectedIndex == -1 ||
                hocky.SelectedIndex == -1 || lanthi.SelectedIndex == -1)
             {
@@ -87,15 +86,12 @@ namespace QuanLyDiemSinhVien.Forms
                 return false;
             }
 
-
-
             return true;
         }
 
         private void danhsachdiem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-            //  MessageBox.Show(e.RowIndex + " " + e.ColumnIndex, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
             try
             {
                 double tem = Convert.ToDouble(danhsachdiem.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
@@ -103,14 +99,17 @@ namespace QuanLyDiemSinhVien.Forms
                 {
                     MessageBox.Show("Điểm không hợp lệ vui lòng nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     danhsachdiem.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
-                    return;
+                    danhsachdiem.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+
+					return;
                 }
             }
             catch
             {
                 MessageBox.Show("Điểm không hợp lệ vui lòng nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 danhsachdiem.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
-                return;
+				danhsachdiem.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+				return;
             }
             string key = danhsachdiem.Rows[e.RowIndex].Cells[0].Value.ToString();
             string value = danhsachdiem.Rows[e.RowIndex].Cells[6].Value.ToString();
@@ -118,7 +117,7 @@ namespace QuanLyDiemSinhVien.Forms
             else editedCells.Add(key, value);
         }
 
-        private void updatebtn_Click(object sender, EventArgs e)
+		private void updatebtn_Click(object sender, EventArgs e)
         {
             if (editedCells.Count == 0)
             {
@@ -445,7 +444,9 @@ namespace QuanLyDiemSinhVien.Forms
             Marshal.ReleaseComObject(exWorkbook);
             exApp.Quit();
         }
-    }
+
+
+	}
 }
 
 

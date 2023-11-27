@@ -20,3 +20,4 @@ E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\BTL_QLDSV\QuanLyDiemSinhVien\ob
 E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\BTL_QLDSV\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.csproj.CoreCompileInputs.cache
 E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\BTL_QLDSV\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.exe
 E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\BTL_QLDSV\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.pdb
+E:\University\Nam3\Ki1_Nam3\LapTrinhTrucQuan\BTL\BTL_QLDSV\QuanLyDiemSinhVien\obj\Debug\QuanLyDiemSinhVien.Forms.ThoiKhoaBieu.resources

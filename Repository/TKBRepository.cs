@@ -38,7 +38,7 @@ namespace QuanLyDiemSinhVien.Repository
         public List<string> getHKsByMaLop(string maLop)
         {
             List<string> list = new List<string>();
-            string sql = $"select HocKy from TKB where malop = '{maLop}'";
+            string sql = $"select HocKy from TKB where malop = '{maLop}' group by hocky";
             DataTable dt = db.readData(sql);
             foreach (DataRow dr in dt.Rows)
             {
@@ -69,7 +69,17 @@ namespace QuanLyDiemSinhVien.Repository
             return dt;
         }
 
-        public DataTable getTKBByMaLopAndHk(string malop, string hk)
+		public DataTable getTKBByHK(string hocky)
+		{
+			string sql = $" select tkb.MaLop, tkb.MaMon, TenMon, HocKy, ThuHoc, CaHoc, TenPhong" +
+						$" from tkb join MonHoc mh on tkb.MaMon = mh.MaMon " +
+						$" join PhongHoc ph on tkb.MaPhong = ph.MaPhong" +
+						$" where hocky = '{hocky}'";
+			DataTable dt = db.readData(sql);
+			return dt;
+		}
+
+		public DataTable getTKBByMaLopAndHk(string malop, string hk)
         {
             string sql = $" select tkb.MaMon, TenMon, HocKy, ThuHoc, CaHoc, TenPhong" +
                         $" from tkb join MonHoc mh on tkb.MaMon = mh.MaMon " +

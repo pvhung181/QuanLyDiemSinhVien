@@ -74,6 +74,7 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
@@ -87,6 +88,7 @@
 			// 
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabPage3);
 			this.tabControl1.Location = new System.Drawing.Point(3, 2);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
@@ -644,6 +646,15 @@
 			this.tabPage2.Text = "Quản lý điểm";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
+			// tabPage3
+			// 
+			this.tabPage3.Location = new System.Drawing.Point(8, 39);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Size = new System.Drawing.Size(1685, 1106);
+			this.tabPage3.TabIndex = 2;
+			this.tabPage3.Text = "Thời khóa biểu";
+			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -717,6 +728,7 @@
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.Button button7;
+		private System.Windows.Forms.TabPage tabPage3;
 	}
 }
 

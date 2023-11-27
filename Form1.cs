@@ -47,11 +47,12 @@ namespace QuanLyDiemSinhVien
 
             loadDefaultValueOfAllCombobox();
 
-            this.Size = new Size(880, 715);
+            this.Size = new Size(880, 700);
             tabControl1.Size = new Size(880, 715);
             addform(tabPage2, new Quanlydiem());
+			addform(tabPage3, new ThoiKhoaBieu());
 
-            setRefreshBtn(button6);
+			setRefreshBtn(button6);
             setRefreshBtn(button7);
             setRefreshBtn(button8);
 		}
